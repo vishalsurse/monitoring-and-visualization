@@ -1,6 +1,6 @@
 # PromGraf
 
-This repository provides a guide for setting up Grafana, Loki, Promtail, Prometheus, and cAdvisor for monitoring and visualization purposes. Below are the steps to install and configure these tools.
+In this repository Grafana, Loki, Promtail, Prometheus, and cAdvisor for monitoring and visualization purposes. Below are the steps to install and configure these tools.
 
 
 
