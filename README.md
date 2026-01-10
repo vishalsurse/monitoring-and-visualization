@@ -2,26 +2,20 @@
 
 This repository provides a guide for setting up Grafana, Loki, Promtail, Prometheus, and cAdvisor for monitoring and visualization purposes. Below are the steps to install and configure these tools.
 
-## Video Tutorial
-[Watch the tutorial on YouTube](https://youtu.be/QwGm5m4AxNA)
+
 
 ## Install Grafana on Debian or Ubuntu
 ```bash
-sudo apt-get install -y apt-transport-https
-sudo apt-get install -y software-properties-common wget
-sudo wget -q -O /usr/share/keyrings/grafana.key https://apt.grafana.com/gpg.key
+sudo yum install -y apt-transport-https
+sudo yum install -y software-properties-common wget
+sudo wget -q -O /etc/pki/rpm-gpg/RPM-GPG-KEY-grafana https://rpm.grafana.com/gpg.key
 ```
-# Stable release
-```
-echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
-```
-# Beta release
-```
-echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
-```
+
 ```bash
-sudo apt-get update
-sudo apt-get install grafana
+# Use dnf instead of yum:
+sudo dnf install -y wget grafana
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
 sudo systemctl status grafana-server
 Install Loki and Promtail using Docker
 ```
@@ -51,14 +45,8 @@ wget https://raw.githubusercontent.com/prometheus/prometheus/main/documentation/
 ```
 docker run -d --name=prometheus -p 9090:9090 -v <PATH_TO_prometheus.yml_FILE>:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
 ```
-# Add cAdvisor target to prometheus.yml
-# Check Config
-
-# Using Docker Compose
-# Check docker-compose.yml
 
 # Verify
 ```
-docker-compose up -d
-docker-compose ps
+docker ps
 ```
