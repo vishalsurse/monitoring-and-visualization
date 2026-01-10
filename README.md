@@ -4,7 +4,7 @@ This repository provides a guide for setting up Grafana, Loki, Promtail, Prometh
 
 
 
-## Install Grafana on Debian or Ubuntu
+## Install Grafana on AWS Using EC2
 ```bash
 sudo yum install -y apt-transport-https
 sudo yum install -y software-properties-common wget
